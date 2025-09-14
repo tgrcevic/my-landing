@@ -35,7 +35,7 @@ header{
 }
 nav.links a.btn{margin-left:10px}
 .logo-img {
-  height: 28px;
+  height: 52px;
   width: auto;
   display: block;
 }
@@ -114,7 +114,7 @@ footer{padding:36px 0 56px; color:#a8b4c8}
 }
 
 .footer-logo{
-  height: 28px;    /* uskladi s headerom; može i 24px */
+  height: 52px;    /* uskladi s headerom; može i 24px */
   width: auto;
   display: block;
   /* po želji: filter za lagani “tint” na tamnoj podlozi */
