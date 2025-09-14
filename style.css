@@ -34,6 +34,11 @@ header{
   box-shadow:0 0 0 2px rgba(255,255,255,.08) inset;
 }
 nav.links a.btn{margin-left:10px}
+.logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
 
 /* Buttons */
 .btn{
