@@ -1,12 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moja Landing Stranica</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modul za mjerenje brzine i smjera vjetra | Meteo</title>
+  <meta name="description" content="Lagani i precizni modul za mjerenje brzine i smjera vjetra. Plug&Play integracija, IP65, niska potrošnja i brzi odziv. Idealno za meteorološke postaje i IoT." />
+  <link rel="canonical" href="https://tvoja-domena.com/" />
+  <meta name="theme-color" content="#0a2540" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="Modul: brzina i smjer vjetra — Meteo" />
+  <meta property="og:description" content="Precizno mjerenje vjetra. IP65, Plug&Play, API. Spremno za integraciju." />
+  <meta property="og:url" content="https://tvoja-domena.com/" />
+  <meta property="og:image" content="https://tvoja-domena.com/og-image.jpg" /> <!-- TODO: zamijeni -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Pozdrav!</h1>
-  <p>Ovo je početna verzija moje web stranice.</p>
+  <a class="skip-link" href="#sadrzaj">Preskoči na sadržaj</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Meteo</span>
+      </div>
+      <nav class="links" aria-label="Sekcije">
+        <a class="btn ghost" href="#karakteristike">Karakteristike</a>
+        <a class="btn ghost" href="#specifikacije">Specifikacije</a>
+        <a class="btn primary" href="#kontakt">Zatraži ponudu</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="sadrzaj" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="naslov">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Meteo modul</div>
+          <h1 id="naslov">Mjerenje brzine i smjera vjetra — precizno, brzo i pouzdano</h1>
+          <p class="lead">
+            Kompaktan modul (anemometar + vjetrokaz) za meteorološke postaje i IoT.
+            IP65 zaštita, niska potrošnja i brzi odziv — spremno za vanjske uvjete i 24/7 rad.
+          </p>
+
+          <div class="badges" aria-label="Istaknute značajke">
+            <span class="badge">±0.3 m/s brzina</span>
+            <span class="badge">±3° smjer</span>
+            <span class="badge">IP65</span>
+            <span class="badge">Plug&Play</span>
+            <span class="badge">API / JSON</span>
+          </div>
+
+          <div class="cta-buttons">
+            <a class="btn primary" href="#kontakt">Zatraži ponudu</a>
+            <a class="btn" href="#" aria-disabled="true" title="Uskoro">Preuzmi datasheet</a>
+          </div>
+        </div>
+
+        <!-- Ilustracija (inline) -->
+        <div class="hero-card">
+          <div class="illus" role="img" aria-label="Ilustracija kompasa i brzine vjetra">
+            <svg width="88%" viewBox="0 0 300 300" aria-hidden="true">
+              <defs>
+                <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <circle cx="150" cy="150" r="112" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+              <g stroke="rgba(255,255,255,.5)" stroke-width="1">
+                <line x1="150" y1="30" x2="150" y2="270"/>
+                <line x1="30" y1="150" x2="270" y2="150"/>
+              </g>
+              <g fill="rgba(255,255,255,.7)" font-size="12" text-anchor="middle">
+                <text x="150" y="20">N</text><text x="150" y="292">S</text>
+                <text x="20" y="154">W</text><text x="280" y="154">E</text>
+              </g>
+              <polygon points="150,60 160,95 150,90 140,95" fill="url(#grad)" filter="url(#glow)"></polygon>
+              <g>
+                <line x1="150" y1="150" x2="150" y2="60" stroke="url(#grad)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+                <circle cx="150" cy="150" r="8" fill="#2bd1ff"/>
+              </g>
+              <defs>
+                <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#2bd1ff"/><stop offset="100%" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <g transform="translate(150,150)">
+                <circle r="55" fill="none" stroke="rgba(255,255,255,.2)" stroke-dasharray="3 6"/>
+                <g>
+                  <circle cx="55" cy="0" r="7" fill="#7c4dff"/>
+                  <circle cx="-55" cy="0" r="7" fill="#7c4dff"/>
+                  <circle cx="0" cy="55" r="7" fill="#7c4dff"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KARAKTERISTIKE -->
+    <section id="karakteristike" aria-labelledby="kar-title">
+      <h2 id="kar-title" class="section-title">Zašto ovaj modul?</h2>
+      <p class="muted">Dizajniran za brzu integraciju u meteorološke postaje i IoT sustave, s naglaskom na pouzdanost i jednostavnost.</p>
+
+      <div class="grid features" role="list">
+        <article class="feature" role="listitem">
+          <div aria-hidden="true">🌬️</div>
+          <h3>Precizno mjerenje</h3>
+          <p>Brzina do 60 m/s; rezolucija 0.1 m/s. Smjer 0–360° s finom rezolucijom. <em>TODO: potvrdi točne vrijednosti.</em></p>
+        </article>
+        <article class="feature" role="listitem">
+          <div aria-hidden="true">🧩</div>
+          <h3>Plug&Play integracija</h3>
+          <p>Podrška za UART/I²C ili pulsni izlaz. Jednostavne tekstualne poruke (JSON) za brzu obradu.</p>
+        </article>
+        <article class="feature" role="listitem">
+          <div aria-hidden="true">🛡️</div>
+          <h3>IP65 zaštita</h3>
+          <p>Otporan na prašinu i prskajuću vodu. Kućište za vanjske uvjete i -20°C do +60°C radno okruženje.</p>
+        </article>
+        <article class="feature" role="listitem">
+          <div aria-hidden="true">⚡</div>
+          <h3>Niska potrošnja</h3>
+          <p>Optimizirana elektronika za 24/7 rad sa solarnim napajanjem. <em>TODO: dodaj tipičnu potrošnju (mA).</em></p>
+        </article>
+        <article class="feature" role="listitem">
+          <div aria-hidden="true">🔧</div>
+          <h3>Jednostavno održavanje</h3>
+          <p>Kalibracija u 2 koraka; dijagnostika stanja senzora preko serijskog sučelja.</p>
+        </article>
+        <article class="feature" role="listitem">
+          <div aria-hidden="true">🛰️</div>
+          <h3>Spreman za IoT</h3>
+          <p>Kompatibilan s data loggerima i gatewayima; spreman za slanje podataka u oblak.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SPECIFIKACIJE -->
+    <section id="specifikacije" aria-labelledby="spec-title">
+      <h2 id="spec-title" class="section-title">Tehničke specifikacije</h2>
+      <div class="grid specs">
+        <div class="spec-card">
+          <table class="spec-table" aria-label="Tehničke specifikacije – mjerenje">
+            <tr><th>Raspon brzine</th><td>0–60 m/s <em>(TODO: potvrdi)</em></td></tr>
+            <tr><th>Točnost brzine</th><td>±0.3 m/s ili ±1% od očitanja</td></tr>
+            <tr><th>Raspon smjera</th><td>0–360°</td></tr>
+            <tr><th>Točnost smjera</th><td>±3° <em>(TODO: potvrdi)</em></td></tr>
+            <tr><th>Rezolucija</th><td>0.1 m/s; 1°</td></tr>
+          </table>
+        </div>
+        <div class="spec-card">
+          <table class="spec-table" aria-label="Tehničke specifikacije – električne i mehaničke">
+            <tr><th>Napajanje</th><td>5–12 V DC <em>(TODO)</em></td></tr>
+            <tr><th>Potrošnja</th><td>&lt; 30 mA tipično <em>(TODO)</em></td></tr>
+            <tr><th>Izlazi</th><td>UART/I²C, pulsni (reed/hall) <em>(odabir modela)</em></td></tr>
+            <tr><th>IP zaštita</th><td>IP65</td></tr>
+            <tr><th>Radna temp.</th><td>-20°C do +60°C</td></tr>
+            <tr><th>Dimenzije</th><td>Nosač ⌀ 30 mm <em>(TODO)</em></td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section aria-labelledby="cta-title">
+      <div class="cta">
+        <div>
+          <h2 id="cta-title" class="section-title" style="margin:0">Spreman za terenska mjerenja</h2>
+          <p class="muted" style="margin:.3em 0 0">Zatraži demo ili specifikacije — odgovaramo isti dan.</p>
+        </div>
+        <div class="cta-buttons">
+          <a class="btn primary" href="#kontakt">Kontakt</a>
+          <a class="btn" href="#" aria-disabled="true">Preuzmi datasheet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title" class="section-title">Kontakt</h2>
+      <p class="muted">Pošaljite nam upit i javit ćemo se s cijenom i rokovima isporuke.</p>
+      <form action="https://formspree.io/f/yourid" method="POST" style="max-width:680px" aria-label="Kontakt forma">
+        <!-- Za GitHub Pages bez backenda možeš koristiti Formspree/Netlify Forms; zamijeni action. -->
+        <div class="grid two">
+          <label>Ime i prezime
+            <input name="name" required placeholder="Vaše ime" />
+          </label>
+          <label>E-mail
+            <input type="email" name="email" required placeholder="ime@domena.com" />
+          </label>
+        </div>
+        <label class="block">Poruka
+          <textarea name="message" rows="4" required placeholder="Zanima me modul za mjerenje vjetra…"></textarea>
+        </label>
+        <div class="actions">
+          <button class="btn primary" type="submit">Pošalji upit</button>
+          <a class="btn ghost" href="mailto:info@tvoja-domena.com">Pošalji e-mail</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container small">
+      <div class="footer-row">
+        <div>© <span id="year"></span> Meteo — Sva prava pridržana.</div>
+        <div>EU-hosted · HTTPS · Brza isporuka podataka</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
