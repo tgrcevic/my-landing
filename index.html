@@ -1,225 +1,377 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Modul za mjerenje brzine i smjera vjetra | Meteo</title>
-  <meta name="description" cotent="Lagani i precizni modul za mjerenje brzine i smjera vjetra. Plug&Play integracija, IP65, niska potrošnja i brzi odziv. Idealno za meteorološke postaje i IoT." />
-  <link rel="canonical" href="https://tvoja-domena.com/" />
-  <meta name="theme-color" content="#0a2540" />
-  <meta name="robots" content="index,follow" data-next-head>
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="product" />
-  <meta property="og:title" content="Modul: brzina i smjer vjetra — Meteo" />
-  <meta property="og:description" content="Precizno mjerenje vjetra. IP65, Plug&Play, API. Spremno za integraciju." />
-  <meta property="og:url" content="https://tvoja-domena.com/" />
-  <meta property="og:image" content="https://tvoja-domena.com/og-image.jpg" /> <!-- TODO: zamijeni -->
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>FCT Lab – Functional Test Fixtures & PCB Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Design of functional test fixtures (FCT) and automated PCB test systems for IoT / NB-IoT and low-power embedded devices.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#sadrzaj">Preskoči na sadržaj</a>
-
   <header>
-    <div class="container nav" role="navigation" aria-label="Glavna navigacija">
-      <div class="brand">
-        <img src="assets/logo.svg" alt="Meteo logo" class="logo-img" />
+    <div class="nav">
+      <div>
+        <div class="logo" data-i18n="header.logo">FCT Lab</div>
+        <div class="tagline" data-i18n="header.tagline">Functional test fixtures & PCB verification</div>
       </div>
-      <nav class="links" aria-label="Sekcije">
-        <a class="btn ghost" href="#karakteristike">Karakteristike</a>
-        <a class="btn ghost" href="#specifikacije">Specifikacije</a>
-        <a class="btn primary" href="#kontakt">Zatraži ponudu</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#services" data-i18n="nav.services">Usluge</a>
+          <a href="#technologies" data-i18n="nav.technologies">Tehnologije</a>
+          <a href="#process" data-i18n="nav.process">Proces</a>
+          <a href="#use-cases" data-i18n="nav.use_cases">Primjene</a>
+          <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switch">
+          <button class="lang-btn active" data-lang="hr">HR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main id="sadrzaj" class="container">
+  <main>
     <!-- HERO -->
-    <section class="hero" aria-labelledby="naslov">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker">Meteo modul</div>
-          <h1 id="naslov">Mjerenje brzine i smjera vjetra — precizno, brzo i pouzdano</h1>
-          <p class="lead">
-            Kompaktan modul (anemometar + vjetrokaz) za meteorološke postaje i IoT.
-            IP65 zaštita, niska potrošnja i brzi odziv — spremno za vanjske uvjete i 24/7 rad.
+    <section class="hero">
+      <div>
+        <div class="hero-kicker" data-i18n="hero.kicker">
+          FCT / ICT test fixtures · IoT / NB-IoT
+        </div>
+        <h1 class="hero-title" data-i18n="hero.title">
+          Funkcionalni testni sustavi za determinističku verifikaciju PCB-a
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          Projektiranje i izrada funkcionalnih testnih fixturea (FCT) i bed-of-nails sustava za serijsku
+          provjeru električke i funkcionalne ispravnosti PCB-a. Fokus je na ponovljivim uvjetima testa,
+          kontroliranim kontaktima i mjerljivim kriterijima prolaza/pada.
+        </p>
+
+        <div class="hero-badges">
+          <span class="badge" data-i18n="hero.badge_1">Pogo-pin bed-of-nails</span>
+          <span class="badge" data-i18n="hero.badge_2">NB-IoT / low-power uređaji</span>
+          <span class="badge" data-i18n="hero.badge_3">Definiran testni slijed</span>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary" data-i18n="hero.cta_primary">
+            Pošalji dokumentaciju za procjenu
+          </a>
+          <a href="#services" class="btn-ghost" data-i18n="hero.cta_secondary">
+            Detalji o sustavu i granicama testa
+          </a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">
+          Ulazni podaci: shema, PCB (Gerber), ciljani testni scenariji, godišnji volumen.
+        </p>
+      </div>
+
+      <aside class="hero-card" aria-label="Example FCT profile">
+        <div class="hero-card-header">
+          <span data-i18n="hero.card_title">NB-IoT brojilo plina – sažetak testa</span>
+          <span class="hero-card-chip" data-i18n="hero.card_chip">DUT: BC660 + MCU + magnetski senzori</span>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-metric">
+            <div class="hero-metric-label" data-i18n="hero.m1_label">Trajanje ciklusa</div>
+            <div class="hero-metric-value" data-i18n="hero.m1_value">≈ 30 s, uključujući registraciju na mrežu</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-label" data-i18n="hero.m2_label">Operatersko sučelje</div>
+            <div class="hero-metric-value" data-i18n="hero.m2_value">Jedan gumb / foot switch</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-label" data-i18n="hero.m3_label">Mjereni parametri</div>
+            <div class="hero-metric-value" data-i18n="hero.m3_value">Sleep struja, naponi, odgovori modema</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-label" data-i18n="hero.m4_label">Tip fixturea</div>
+            <div class="hero-metric-value" data-i18n="hero.m4_value">Manual clamp, donji bed-of-nails</div>
+          </div>
+        </div>
+        <div class="hero-card-footer" data-i18n="hero.card_footer">
+          Testni slijed reproducira nominalne uvjete rada brojila: ciklusi buđenja, NB-IoT prijava i obrada impulsa
+          magnetskih senzora s različitim frekvencijama.
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 class="section-title" data-i18n="services.title">Područja rada</h2>
+      <p class="section-subtitle" data-i18n="services.subtitle">
+        Fokus je na funkcionalnom testiranju (FCT) i determinističkim postupcima verifikacije. Nema ad-hoc ručnih procedura;
+        svi koraci testa definirani su u dokumentaciji i softveru.
+      </p>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <h3 data-i18n="services.s1_title">FCT/ICT test fixtures</h3>
+          <p data-i18n="services.s1_body">
+            Projektiranje fixturea na temelju realnog layouta i dostupnih testnih točaka. Odabir pogo pinova, rastera,
+            gornjeg/donjeg pristupa i mehaničkog vođenja za stabilan kontakt.
           </p>
-
-          <div class="badges" aria-label="Istaknute značajke">
-            <span class="badge">±0.3 m/s brzina</span>
-            <span class="badge">±3° smjer</span>
-            <span class="badge">IP65</span>
-            <span class="badge">Plug&Play</span>
-            <span class="badge">API / JSON</span>
-          </div>
-
-          <div class="cta-buttons">
-            <a class="btn primary" href="#kontakt">Zatraži ponudu</a>
-            <a class="btn" href="#" aria-disabled="true" title="Uskoro">Preuzmi datasheet</a>
-          </div>
-        </div>
-
-        <!-- Ilustracija (inline) -->
-        <div class="hero-card">
-          <div class="illus" role="img" aria-label="Ilustracija kompasa i brzine vjetra">
-            <svg width="88%" viewBox="0 0 300 300" aria-hidden="true">
-              <defs>
-                <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              </defs>
-              <circle cx="150" cy="150" r="112" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-              <g stroke="rgba(255,255,255,.5)" stroke-width="1">
-                <line x1="150" y1="30" x2="150" y2="270"/>
-                <line x1="30" y1="150" x2="270" y2="150"/>
-              </g>
-              <g fill="rgba(255,255,255,.7)" font-size="12" text-anchor="middle">
-                <text x="150" y="20">N</text><text x="150" y="292">S</text>
-                <text x="20" y="154">W</text><text x="280" y="154">E</text>
-              </g>
-              <polygon points="150,60 160,95 150,90 140,95" fill="url(#grad)" filter="url(#glow)"></polygon>
-              <g>
-                <line x1="150" y1="150" x2="150" y2="60" stroke="url(#grad)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
-                <circle cx="150" cy="150" r="8" fill="#2bd1ff"/>
-              </g>
-              <defs>
-                <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="#2bd1ff"/><stop offset="100%" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <g transform="translate(150,150)">
-                <circle r="55" fill="none" stroke="rgba(255,255,255,.2)" stroke-dasharray="3 6"/>
-                <g>
-                  <circle cx="55" cy="0" r="7" fill="#7c4dff"/>
-                  <circle cx="-55" cy="0" r="7" fill="#7c4dff"/>
-                  <circle cx="0" cy="55" r="7" fill="#7c4dff"/>
-                </g>
-              </g>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- KARAKTERISTIKE -->
-    <section id="karakteristike" aria-labelledby="kar-title">
-      <h2 id="kar-title" class="section-title">Zašto ovaj modul?</h2>
-      <p class="muted">Dizajniran za brzu integraciju u meteorološke postaje i IoT sustave, s naglaskom na pouzdanost i jednostavnost.</p>
-
-      <div class="grid features" role="list">
-        <article class="feature" role="listitem">
-          <div aria-hidden="true">🌬️</div>
-          <h3>Precizno mjerenje</h3>
-          <p>Brzina do 60 m/s; rezolucija 0.1 m/s. Smjer 0–360° s finom rezolucijom. <em>TODO: potvrdi točne vrijednosti.</em></p>
+          <ul>
+            <li data-i18n="services.s1_li1">ponovljivost kontakta unutar tolerancija</li>
+            <li data-i18n="services.s1_li2">kontrolirani uvjeti napajanja tijekom testa</li>
+          </ul>
         </article>
-        <article class="feature" role="listitem">
-          <div aria-hidden="true">🧩</div>
-          <h3>Plug&Play integracija</h3>
-          <p>Podrška za UART/I²C ili pulsni izlaz. Jednostavne tekstualne poruke (JSON) za brzu obradu.</p>
+
+        <article class="card">
+          <h3 data-i18n="services.s2_title">Automatizirani testni slijed</h3>
+          <p data-i18n="services.s2_body">
+            Implementacija skripti koje inicijaliziraju DUT, primjenjuju pobude, mjere relevantne veličine i evaluiraju
+            granice. Rezultat testa jednoznačno je definiran.
+          </p>
+          <ul>
+            <li data-i18n="services.s2_li1">serijski protokoli, AT naredbe, digitalni I/O</li>
+            <li data-i18n="services.s2_li2">logovi s vremenskim oznakama i statusom</li>
+          </ul>
         </article>
-        <article class="feature" role="listitem">
-          <div aria-hidden="true">🛡️</div>
-          <h3>IP65 zaštita</h3>
-          <p>Otporan na prašinu i prskajuću vodu. Kućište za vanjske uvjete i -20°C do +60°C radno okruženje.</p>
+
+        <article class="card">
+          <h3 data-i18n="services.s3_title">DFT analiza (Design for Testability)</h3>
+          <p data-i18n="services.s3_body">
+            Provjera dizajna s aspekta testabilnosti. Detekcija nemjerljivih čvorova, neadekvatnih testnih točaka i
+            neoptimalnih kombinacija signala.
+          </p>
+          <ul>
+            <li data-i18n="services.s3_li1">identifikacija potrebnih dodatnih TP</li>
+            <li data-i18n="services.s3_li2">preporuke za sljedeću PCB reviziju</li>
+          </ul>
         </article>
-        <article class="feature" role="listitem">
-          <div aria-hidden="true">⚡</div>
-          <h3>Niska potrošnja</h3>
-          <p>Optimizirana elektronika za 24/7 rad sa solarnim napajanjem. <em>TODO: dodaj tipičnu potrošnju (mA).</em></p>
+
+        <article class="card">
+          <h3 data-i18n="services.s4_title">Prototip fixturea</h3>
+          <p data-i18n="services.s4_body">
+            Izrada prvog funkcionalnog modela fixturea radi provjere kontakata, tolerancija poravnanja i trajnosti pinova.
+          </p>
+          <ul>
+            <li data-i18n="services.s4_li1">3D print / CNC za iteracije</li>
+            <li data-i18n="services.s4_li2">brza korekcija kritičnih mjesta</li>
+          </ul>
         </article>
-        <article class="feature" role="listitem">
-          <div aria-hidden="true">🔧</div>
-          <h3>Jednostavno održavanje</h3>
-          <p>Kalibracija u 2 koraka; dijagnostika stanja senzora preko serijskog sučelja.</p>
+
+        <article class="card">
+          <h3 data-i18n="services.s5_title">Dokumentacija</h3>
+          <p data-i18n="services.s5_body">
+            Sheme, nacrti, opis testnog slijeda i kriterija prolaza/pada, upute za operatere i osnovne dijagnostičke procedure.
+          </p>
+          <ul>
+            <li data-i18n="services.s5_li1">jasno definirani ulazni i izlazni kriteriji</li>
+          </ul>
         </article>
-        <article class="feature" role="listitem">
-          <div aria-hidden="true">🛰️</div>
-          <h3>Spreman za IoT</h3>
-          <p>Kompatibilan s data loggerima i gatewayima; spreman za slanje podataka u oblak.</p>
+
+        <article class="card">
+          <h3 data-i18n="services.s6_title">Održavanje i prilagodbe</h3>
+          <p data-i18n="services.s6_body">
+            Zamjena pogo pinova, mehaničke korekcije i prilagodba testnih scenarija promjenama firmwarea ili PCB revizija.
+          </p>
+          <ul>
+            <li data-i18n="services.s6_li1">podrška kroz životni vijek proizvoda</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <!-- SPECIFIKACIJE -->
-    <section id="specifikacije" aria-labelledby="spec-title">
-      <h2 id="spec-title" class="section-title">Tehničke specifikacije</h2>
-      <div class="grid specs">
-        <div class="spec-card">
-          <table class="spec-table" aria-label="Tehničke specifikacije – mjerenje">
-            <tr><th>Raspon brzine</th><td>0–60 m/s <em>(TODO: potvrdi)</em></td></tr>
-            <tr><th>Točnost brzine</th><td>±0.3 m/s ili ±1% od očitanja</td></tr>
-            <tr><th>Raspon smjera</th><td>0–360°</td></tr>
-            <tr><th>Točnost smjera</th><td>±3° <em>(TODO: potvrdi)</em></td></tr>
-            <tr><th>Rezolucija</th><td>0.1 m/s; 1°</td></tr>
-          </table>
-        </div>
-        <div class="spec-card">
-          <table class="spec-table" aria-label="Tehničke specifikacije – električne i mehaničke">
-            <tr><th>Napajanje</th><td>5–12 V DC <em>(TODO)</em></td></tr>
-            <tr><th>Potrošnja</th><td>&lt; 30 mA tipično <em>(TODO)</em></td></tr>
-            <tr><th>Izlazi</th><td>UART/I²C, pulsni (reed/hall) <em>(odabir modela)</em></td></tr>
-            <tr><th>IP zaštita</th><td>IP65</td></tr>
-            <tr><th>Radna temp.</th><td>-20°C do +60°C</td></tr>
-            <tr><th>Dimenzije</th><td>Nosač ⌀ 30 mm <em>(TODO)</em></td></tr>
-          </table>
-        </div>
-      </div>
-    </section>
+    <!-- TECHNOLOGIES -->
+    <section id="technologies">
+      <h2 class="section-title" data-i18n="tech.title">Tehnologije i testni opseg</h2>
+      <p class="section-subtitle" data-i18n="tech.subtitle">
+        Primarni fokus su NB-IoT i niskopotrošni uređaji, ali koncept je primjenjiv na većinu embedded sustava s jasnim
+        električkim i funkcionalnim specifikacijama.
+      </p>
 
-    <!-- CTA -->
-    <section aria-labelledby="cta-title">
-      <div class="cta">
+      <div class="two-col">
         <div>
-          <h2 id="cta-title" class="section-title" style="margin:0">Spreman za terenska mjerenja</h2>
-          <p class="muted" style="margin:.3em 0 0">Zatraži demo ili specifikacije — odgovaramo isti dan.</p>
+          <div class="card">
+            <h3 data-i18n="tech.t1_title">Tipovi uređaja</h3>
+            <ul>
+              <li data-i18n="tech.t1_li1">NB-IoT / LTE-M moduli i modemi</li>
+              <li data-i18n="tech.t1_li2">baterijski senzorski čvorovi (magnetni/Hall)</li>
+              <li data-i18n="tech.t1_li3">embedded sustavi s digitalnim i analognim I/O</li>
+              <li data-i18n="tech.t1_li4">IoT uređaji s integriranim RF modulima</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="tech.t2_title">Električki i funkcionalni test</h3>
+            <ul>
+              <li data-i18n="tech.t2_li1">start-up, brown-out, sleep i wake-up scenariji</li>
+              <li data-i18n="tech.t2_li2">struja mirovanja u µA području</li>
+              <li data-i18n="tech.t2_li3">verifikacija komunikacije (UART/I²C/SPI, AT naredbe)</li>
+              <li data-i18n="tech.t2_li4">simulacija ulaznih signala (impulsi, prekidači)</li>
+            </ul>
+          </div>
         </div>
-        <div class="cta-buttons">
-          <a class="btn primary" href="#kontakt">Kontakt</a>
-          <a class="btn" href="#" aria-disabled="true">Preuzmi datasheet</a>
+
+        <div>
+          <div class="card">
+            <h3 data-i18n="tech.t3_title">Fixturing i mehanika</h3>
+            <ul>
+              <li data-i18n="tech.t3_li1">bed-of-nails s definiranim rasterom</li>
+              <li data-i18n="tech.t3_li2">gornji/donji pristup, vođenje DUT-a</li>
+              <li data-i18n="tech.t3_li3">RF i specifični konektori gdje je potrebno</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="tech.t4_title">Softver za test</h3>
+            <ul>
+              <li data-i18n="tech.t4_li1">determinističke skripte s definiranom logikom</li>
+              <li data-i18n="tech.t4_li2">logovi u strojno čitljivom formatu</li>
+              <li data-i18n="tech.t4_li3">jednostavno operatersko sučelje (GUI/CLI)</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="kontakt" aria-labelledby="kontakt-title">
-      <h2 id="kontakt-title" class="section-title">Kontakt</h2>
-      <p class="muted">Pošaljite nam upit i javit ćemo se s cijenom i rokovima isporuke.</p>
-      <form action="https://formspree.io/f/yourid" method="POST" style="max-width:680px" aria-label="Kontakt forma">
-        <!-- Za GitHub Pages bez backenda možeš koristiti Formspree/Netlify Forms; zamijeni action. -->
-        <div class="grid two">
-          <label>Ime i prezime
-            <input name="name" required placeholder="Vaše ime" />
-          </label>
-          <label>E-mail
-            <input type="email" name="email" required placeholder="ime@domena.com" />
-          </label>
+    <!-- PROCESS -->
+    <section id="process">
+      <h2 class="section-title" data-i18n="process.title">Postupak</h2>
+      <p class="section-subtitle" data-i18n="process.subtitle">
+        Svaki projekt prolazi kroz iste osnovne faze. Rezultat je fixture i testni slijed koji odgovaraju stvarnim
+        ograničenjima dizajna i proizvodnje.
+      </p>
+
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-index">1</div>
+          <div>
+            <strong data-i18n="process.s1_title">Analiza dokumentacije</strong>
+            <p data-i18n="process.s1_body">
+              Pregled sheme, PCB-a i specifikacija. Identifikacija funkcionalnih blokova i kritičnih čvorova.
+            </p>
+          </div>
         </div>
-        <label class="block">Poruka
-          <textarea name="message" rows="4" required placeholder="Zanima me modul za mjerenje vjetra…"></textarea>
-        </label>
-        <div class="actions">
-          <button class="btn primary" type="submit">Pošalji upit</button>
-          <a class="btn ghost" href="mailto:info@tvoja-domena.com">Pošalji e-mail</a>
+        <div class="step">
+          <div class="step-index">2</div>
+          <div>
+            <strong data-i18n="process.s2_title">DFT evaluacija</strong>
+            <p data-i18n="process.s2_body">
+              Procjena testabilnosti postojećeg dizajna i izdvajanje točaka koje nije moguće pouzdano testirati.
+            </p>
+          </div>
         </div>
-      </form>
+        <div class="step">
+          <div class="step-index">3</div>
+          <div>
+            <strong data-i18n="process.s3_title">Koncept fixturea</strong>
+            <p data-i18n="process.s3_body">
+              Odabir tipa fixturea, rasporeda pogo pinova, mehaničkog vođenja i potrebnih pomoćnih sklopova.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-index">4</div>
+          <div>
+            <strong data-i18n="process.s4_title">Mehanički i električni dizajn</strong>
+            <p data-i18n="process.s4_body">
+              Izrada 3D modela, nacrta i shema. Definicija ožičenja, konektora i mjernih točaka.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-index">5</div>
+          <div>
+            <strong data-i18n="process.s5_title">Prototip i verifikacija</strong>
+            <p data-i18n="process.s5_body">
+              Izrada prototipa fixturea i testiranje kontakata, stabilnosti mjerenja i robusnosti postupka.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-index">6</div>
+          <div>
+            <strong data-i18n="process.s6_title">Implementacija testnog softvera</strong>
+            <p data-i18n="process.s6_body">
+              Definiranje testnih koraka, granica tolerancije i strukture logova. Priprema za rad u serijskoj proizvodnji.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section id="use-cases">
+      <h2 class="section-title" data-i18n="cases.title">Primjeri upotrebe</h2>
+      <p class="section-subtitle" data-i18n="cases.subtitle">
+        Tipične konfiguracije gdje je funkcionalni fixture prikladniji od ručnog testiranja ili generičkih rješenja.
+      </p>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <h3 data-i18n="cases.c1_title">NB-IoT brojilo plina</h3>
+          <p data-i18n="cases.c1_body">
+            Uređaj s NB-IoT modemom, niskopotrošnim mikrokontrolerom i magnetskim senzorima za detekciju potrošnje.
+          </p>
+          <ul>
+            <li data-i18n="cases.c1_li1">simulacija impulsa senzora s više frekvencija</li>
+            <li data-i18n="cases.c1_li2">mjerenje sleep struje i tranzijenata</li>
+            <li data-i18n="cases.c1_li3">verifikacija registracije na mrežu</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3 data-i18n="cases.c2_title">Industrijski IoT senzor</h3>
+          <p data-i18n="cases.c2_body">
+            Senzor s više digitalnih i analognih kanala, predviđen za rad u industrijskim uvjetima.
+          </p>
+          <ul>
+            <li data-i18n="cases.c2_li1">test svih I/O linija pod opterećenjem</li>
+            <li data-i18n="cases.c2_li2">tracing parametara za kasniju dijagnostiku</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="card" style="margin-top:1.4rem;">
+        <h3 data-i18n="cases.benefits_title">Razlozi za uvođenje FCT fixturea</h3>
+        <ul>
+          <li data-i18n="cases.benefits_li1">smanjena varijabilnost mjerenja u odnosu na ručne metode</li>
+          <li data-i18n="cases.benefits_li2">jednoznačni kriteriji prolaza/pada</li>
+          <li data-i18n="cases.benefits_li3">mogućnost kasnije analize kvarova preko logova</li>
+          <li data-i18n="cases.benefits_li4">skalabilnost na veće serije bez promjene principa rada</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div>
+        <p class="contact-tag" data-i18n="contact.tag">Kontakt i ulazni podaci</p>
+        <h2 data-i18n="contact.title">Slanje dokumentacije</h2>
+        <p data-i18n="contact.body">
+          Za procjenu i prijedlog arhitekture fixturea potrebno je poslati osnovnu dokumentaciju uređaja
+          i okvirne zahtjeve za testiranje.
+        </p>
+        <ul>
+          <li data-i18n="contact.li1">shema u PDF formatu</li>
+          <li data-i18n="contact.li2">PCB proizvodna dokumentacija (Gerber ili sličan format)</li>
+          <li data-i18n="contact.li3">popis funkcionalnosti koje treba verificirati</li>
+          <li data-i18n="contact.li4">očekivani godišnji volumen i takt linije</li>
+        </ul>
+        <p data-i18n="contact.note">
+          Na temelju toga definira se realan opseg testa, tip fixturea i očekivana složenost implementacije.
+        </p>
+      </div>
+      <div>
+        <div>
+          <strong data-i18n="contact.email_label">E-mail</strong><br>
+          <a href="mailto:info@fct-lab.hr" data-i18n="contact.email_value">info@fct-lab.hr</a>
+        </div>
+        <div style="margin-top:0.8rem;">
+          <strong data-i18n="contact.subject_label">Primjer subject linije</strong>
+          <ul>
+            <li><code data-i18n="contact.subject_example">[FCT] Projekt – osnovni podaci i dokumentacija</code></li>
+          </ul>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-     <div class="container">
-    <div class="footer-card">
-      <div class="footer-left">
-        <img src="assets/logo.svg" alt="Senseify" class="footer-logo" />
-      </div>
-      <div class="footer-right">
-        © <span id="year"></span> Senseify. All rights reserved.
-      </div>
-    </div>
-  </div>
+    © <span id="year"></span> <span data-i18n="footer.text">FCT Lab – functional test engineering</span>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
