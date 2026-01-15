@@ -1,377 +1,382 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hr">
 <head>
-  <meta charset="UTF-8">
-  <title>FCT Lab – Functional Test Fixtures & PCB Verification</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Design of functional test fixtures (FCT) and automated PCB test systems for IoT / NB-IoT and low-power embedded devices.">
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LoRaWAN Gateway | Engineering Sample</title>
+  <meta name="description" content="Industrial LoRaWAN Gateway (EU868) — Engineering Sample (ES). Preliminary specifications subject to change." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="nav">
-      <div>
-        <div class="logo" data-i18n="header.logo">FCT Lab</div>
-        <div class="tagline" data-i18n="header.tagline">Functional test fixtures & PCB verification</div>
-      </div>
-      <div class="nav-right">
-        <nav class="nav-links">
-          <a href="#services" data-i18n="nav.services">Usluge</a>
-          <a href="#technologies" data-i18n="nav.technologies">Tehnologije</a>
-          <a href="#process" data-i18n="nav.process">Proces</a>
-          <a href="#use-cases" data-i18n="nav.use_cases">Primjene</a>
-          <a href="#contact" data-i18n="nav.contact">Kontakt</a>
-        </nav>
-        <div class="lang-switch" aria-label="Language switch">
-          <button class="lang-btn active" data-lang="hr">HR</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-        </div>
-      </div>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Početna">
+        <span class="brand-mark">GW</span>
+        <span class="brand-text">LoRaWAN Gateway</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#specs">Specifikacije</a>
+        <a href="#status">Verified / Planned</a>
+        <a href="#usecases">Use-cases</a>
+        <a href="#contact" class="nav-cta">Kontakt</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Otvori izbornik" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile" hidden>
+      <a href="#specs">Specifikacije</a>
+      <a href="#status">Verified / Planned</a>
+      <a href="#usecases">Use-cases</a>
+      <a href="#contact">Kontakt</a>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
     <section class="hero">
-      <div>
-        <div class="hero-kicker" data-i18n="hero.kicker">
-          FCT / ICT test fixtures · IoT / NB-IoT
-        </div>
-        <h1 class="hero-title" data-i18n="hero.title">
-          Funkcionalni testni sustavi za determinističku verifikaciju PCB-a
-        </h1>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">
-          Projektiranje i izrada funkcionalnih testnih fixturea (FCT) i bed-of-nails sustava za serijsku
-          provjeru električke i funkcionalne ispravnosti PCB-a. Fokus je na ponovljivim uvjetima testa,
-          kontroliranim kontaktima i mjerljivim kriterijima prolaza/pada.
-        </p>
-
-        <div class="hero-badges">
-          <span class="badge" data-i18n="hero.badge_1">Pogo-pin bed-of-nails</span>
-          <span class="badge" data-i18n="hero.badge_2">NB-IoT / low-power uređaji</span>
-          <span class="badge" data-i18n="hero.badge_3">Definiran testni slijed</span>
-        </div>
-
-        <div class="hero-cta">
-          <a href="#contact" class="btn-primary" data-i18n="hero.cta_primary">
-            Pošalji dokumentaciju za procjenu
-          </a>
-          <a href="#services" class="btn-ghost" data-i18n="hero.cta_secondary">
-            Detalji o sustavu i granicama testa
-          </a>
-        </div>
-        <p class="hero-note" data-i18n="hero.note">
-          Ulazni podaci: shema, PCB (Gerber), ciljani testni scenariji, godišnji volumen.
-        </p>
-      </div>
-
-      <aside class="hero-card" aria-label="Example FCT profile">
-        <div class="hero-card-header">
-          <span data-i18n="hero.card_title">NB-IoT brojilo plina – sažetak testa</span>
-          <span class="hero-card-chip" data-i18n="hero.card_chip">DUT: BC660 + MCU + magnetski senzori</span>
-        </div>
-        <div class="hero-grid">
-          <div class="hero-metric">
-            <div class="hero-metric-label" data-i18n="hero.m1_label">Trajanje ciklusa</div>
-            <div class="hero-metric-value" data-i18n="hero.m1_value">≈ 30 s, uključujući registraciju na mrežu</div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="badges">
+            <span class="badge badge-es" title="Engineering Sample">Engineering Sample (ES)</span>
+            <span class="badge badge-prelim" title="Preliminary specifications">Preliminary Specs</span>
           </div>
-          <div class="hero-metric">
-            <div class="hero-metric-label" data-i18n="hero.m2_label">Operatersko sučelje</div>
-            <div class="hero-metric-value" data-i18n="hero.m2_value">Jedan gumb / foot switch</div>
+
+          <h1>Industrial LoRaWAN Gateway za EU868<br/>s dijagnostikom napajanja i auto-recoveryjem</h1>
+
+          <p class="lead">
+            Razvojna verzija (ES) namijenjena ranoj validaciji na terenu, pilotima i partnerstvima.
+            Specifikacije su <strong>preliminarne</strong> i mogu se promijeniti prije produkcije.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Zatraži early access</a>
+            <a class="btn btn-secondary" href="#specs">Pogledaj specifikacije</a>
           </div>
-          <div class="hero-metric">
-            <div class="hero-metric-label" data-i18n="hero.m3_label">Mjereni parametri</div>
-            <div class="hero-metric-value" data-i18n="hero.m3_value">Sleep struja, naponi, odgovori modema</div>
-          </div>
-          <div class="hero-metric">
-            <div class="hero-metric-label" data-i18n="hero.m4_label">Tip fixturea</div>
-            <div class="hero-metric-value" data-i18n="hero.m4_value">Manual clamp, donji bed-of-nails</div>
+
+          <div class="disclaimer">
+            <strong>Napomena:</strong> Ova stranica prikazuje “target / up to” vrijednosti. Finalne brojke ovise o
+            konfiguraciji (antena, kućište, napajanje, termalno) i završnoj verifikaciji (testovi + certifikacije).
           </div>
         </div>
-        <div class="hero-card-footer" data-i18n="hero.card_footer">
-          Testni slijed reproducira nominalne uvjete rada brojila: ciklusi buđenja, NB-IoT prijava i obrada impulsa
-          magnetskih senzora s različitim frekvencijama.
-        </div>
-      </aside>
-    </section>
 
-    <!-- SERVICES -->
-    <section id="services">
-      <h2 class="section-title" data-i18n="services.title">Područja rada</h2>
-      <p class="section-subtitle" data-i18n="services.subtitle">
-        Fokus je na funkcionalnom testiranju (FCT) i determinističkim postupcima verifikacije. Nema ad-hoc ručnih procedura;
-        svi koraci testa definirani su u dokumentaciji i softveru.
-      </p>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <h3 data-i18n="services.s1_title">FCT/ICT test fixtures</h3>
-          <p data-i18n="services.s1_body">
-            Projektiranje fixturea na temelju realnog layouta i dostupnih testnih točaka. Odabir pogo pinova, rastera,
-            gornjeg/donjeg pristupa i mehaničkog vođenja za stabilan kontakt.
-          </p>
-          <ul>
-            <li data-i18n="services.s1_li1">ponovljivost kontakta unutar tolerancija</li>
-            <li data-i18n="services.s1_li2">kontrolirani uvjeti napajanja tijekom testa</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="services.s2_title">Automatizirani testni slijed</h3>
-          <p data-i18n="services.s2_body">
-            Implementacija skripti koje inicijaliziraju DUT, primjenjuju pobude, mjere relevantne veličine i evaluiraju
-            granice. Rezultat testa jednoznačno je definiran.
-          </p>
-          <ul>
-            <li data-i18n="services.s2_li1">serijski protokoli, AT naredbe, digitalni I/O</li>
-            <li data-i18n="services.s2_li2">logovi s vremenskim oznakama i statusom</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="services.s3_title">DFT analiza (Design for Testability)</h3>
-          <p data-i18n="services.s3_body">
-            Provjera dizajna s aspekta testabilnosti. Detekcija nemjerljivih čvorova, neadekvatnih testnih točaka i
-            neoptimalnih kombinacija signala.
-          </p>
-          <ul>
-            <li data-i18n="services.s3_li1">identifikacija potrebnih dodatnih TP</li>
-            <li data-i18n="services.s3_li2">preporuke za sljedeću PCB reviziju</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="services.s4_title">Prototip fixturea</h3>
-          <p data-i18n="services.s4_body">
-            Izrada prvog funkcionalnog modela fixturea radi provjere kontakata, tolerancija poravnanja i trajnosti pinova.
-          </p>
-          <ul>
-            <li data-i18n="services.s4_li1">3D print / CNC za iteracije</li>
-            <li data-i18n="services.s4_li2">brza korekcija kritičnih mjesta</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="services.s5_title">Dokumentacija</h3>
-          <p data-i18n="services.s5_body">
-            Sheme, nacrti, opis testnog slijeda i kriterija prolaza/pada, upute za operatere i osnovne dijagnostičke procedure.
-          </p>
-          <ul>
-            <li data-i18n="services.s5_li1">jasno definirani ulazni i izlazni kriteriji</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="services.s6_title">Održavanje i prilagodbe</h3>
-          <p data-i18n="services.s6_body">
-            Zamjena pogo pinova, mehaničke korekcije i prilagodba testnih scenarija promjenama firmwarea ili PCB revizija.
-          </p>
-          <ul>
-            <li data-i18n="services.s6_li1">podrška kroz životni vijek proizvoda</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- TECHNOLOGIES -->
-    <section id="technologies">
-      <h2 class="section-title" data-i18n="tech.title">Tehnologije i testni opseg</h2>
-      <p class="section-subtitle" data-i18n="tech.subtitle">
-        Primarni fokus su NB-IoT i niskopotrošni uređaji, ali koncept je primjenjiv na većinu embedded sustava s jasnim
-        električkim i funkcionalnim specifikacijama.
-      </p>
-
-      <div class="two-col">
-        <div>
+        <div class="hero-card">
           <div class="card">
-            <h3 data-i18n="tech.t1_title">Tipovi uređaja</h3>
-            <ul>
-              <li data-i18n="tech.t1_li1">NB-IoT / LTE-M moduli i modemi</li>
-              <li data-i18n="tech.t1_li2">baterijski senzorski čvorovi (magnetni/Hall)</li>
-              <li data-i18n="tech.t1_li3">embedded sustavi s digitalnim i analognim I/O</li>
-              <li data-i18n="tech.t1_li4">IoT uređaji s integriranim RF modulima</li>
-            </ul>
-          </div>
+            <div class="card-header">
+              <h2>ES status</h2>
+              <span class="pill">v0.x</span>
+            </div>
 
-          <div class="card">
-            <h3 data-i18n="tech.t2_title">Električki i funkcionalni test</h3>
-            <ul>
-              <li data-i18n="tech.t2_li1">start-up, brown-out, sleep i wake-up scenariji</li>
-              <li data-i18n="tech.t2_li2">struja mirovanja u µA području</li>
-              <li data-i18n="tech.t2_li3">verifikacija komunikacije (UART/I²C/SPI, AT naredbe)</li>
-              <li data-i18n="tech.t2_li4">simulacija ulaznih signala (impulsi, prekidači)</li>
+            <ul class="key-points">
+              <li>
+                <span class="dot dot-ok"></span>
+                SX1303 koncentrator + RPi4 host
+              </li>
+              <li>
+                <span class="dot dot-ok"></span>
+                EU868 fokus
+              </li>
+              <li>
+                <span class="dot dot-ok"></span>
+                FineTimestamp: geolocation-ready (TDoA)
+              </li>
+              <li>
+                <span class="dot dot-ok"></span>
+                Power Quality telemetry + korelacija reset/packet loss
+              </li>
+              <li>
+                <span class="dot dot-warn"></span>
+                Kućište / IP rating: target (TBD)
+              </li>
+              <li>
+                <span class="dot dot-warn"></span>
+                Certifikati: roadmap (CE/RED)
+              </li>
             </ul>
-          </div>
-        </div>
 
-        <div>
-          <div class="card">
-            <h3 data-i18n="tech.t3_title">Fixturing i mehanika</h3>
-            <ul>
-              <li data-i18n="tech.t3_li1">bed-of-nails s definiranim rasterom</li>
-              <li data-i18n="tech.t3_li2">gornji/donji pristup, vođenje DUT-a</li>
-              <li data-i18n="tech.t3_li3">RF i specifični konektori gdje je potrebno</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 data-i18n="tech.t4_title">Softver za test</h3>
-            <ul>
-              <li data-i18n="tech.t4_li1">determinističke skripte s definiranom logikom</li>
-              <li data-i18n="tech.t4_li2">logovi u strojno čitljivom formatu</li>
-              <li data-i18n="tech.t4_li3">jednostavno operatersko sučelje (GUI/CLI)</li>
-            </ul>
+            <div class="card-footer">
+              <a class="link" href="#status">Što je verified, a što planned →</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section id="process">
-      <h2 class="section-title" data-i18n="process.title">Postupak</h2>
-      <p class="section-subtitle" data-i18n="process.subtitle">
-        Svaki projekt prolazi kroz iste osnovne faze. Rezultat je fixture i testni slijed koji odgovaraju stvarnim
-        ograničenjima dizajna i proizvodnje.
-      </p>
+    <!-- SPECS -->
+    <section class="section" id="specs">
+      <div class="container">
+        <div class="section-title">
+          <h2>Preliminary specifikacije (web-ready)</h2>
+          <p>
+            Ovdje su brojke napisane tako da su obranjive: koristimo <strong>“up to / designed for / target”</strong>.
+          </p>
+        </div>
 
-      <div class="process-steps">
-        <div class="step">
-          <div class="step-index">1</div>
-          <div>
-            <strong data-i18n="process.s1_title">Analiza dokumentacije</strong>
-            <p data-i18n="process.s1_body">
-              Pregled sheme, PCB-a i specifikacija. Identifikacija funkcionalnih blokova i kritičnih čvorova.
-            </p>
+        <div class="spec-controls">
+          <div class="toggle-group" role="group" aria-label="Prikaz specifikacija">
+            <button class="toggle-btn is-active" data-spec-view="mixed" type="button">Mixed</button>
+            <button class="toggle-btn" data-spec-view="verified" type="button">Verified</button>
+            <button class="toggle-btn" data-spec-view="planned" type="button">Planned</button>
+          </div>
+          <div class="small-note">
+            “Verified” = realno implementirano / poznato iz dizajna. “Planned” = roadmap / target.
           </div>
         </div>
-        <div class="step">
-          <div class="step-index">2</div>
-          <div>
-            <strong data-i18n="process.s2_title">DFT evaluacija</strong>
-            <p data-i18n="process.s2_body">
-              Procjena testabilnosti postojećeg dizajna i izdvajanje točaka koje nije moguće pouzdano testirati.
-            </p>
+
+        <div class="spec-grid" id="specGrid">
+          <!-- Radio -->
+          <article class="spec-card" data-status="verified">
+            <h3>Radio & LoRaWAN</h3>
+            <ul>
+              <li><strong>Concentrator:</strong> Semtech SX1303 (multi-channel)</li>
+              <li><strong>Region:</strong> EU868</li>
+              <li><strong>Channels:</strong> 8× uplink multi-SF + 1× downlink</li>
+              <li><strong>SF/BW:</strong> SF7–SF12, 125/250/500 kHz</li>
+              <li><strong>Timestamp:</strong> FineTimestamp (geolocation-ready)</li>
+            </ul>
+            <div class="chip chip-verified">Verified</div>
+          </article>
+
+          <article class="spec-card" data-status="mixed">
+            <h3>RF performanse (target)</h3>
+            <ul>
+              <li><strong>RX sensitivity:</strong> up to −140 dBm (conducted, SF12/125 kHz)</li>
+              <li><strong>Real-world (antenna):</strong> tipično −135 do −138 dBm (ovisno o RF dizajnu)</li>
+              <li><strong>TX power:</strong> up to +27 dBm conducted (EU EIRP limit konfigurabilan)</li>
+            </ul>
+            <div class="chip chip-mixed">Preliminary</div>
+          </article>
+
+          <!-- Platform -->
+          <article class="spec-card" data-status="verified">
+            <h3>Platforma</h3>
+            <ul>
+              <li><strong>Host:</strong> Raspberry Pi 4 class SBC</li>
+              <li><strong>CPU:</strong> Quad-core ARM Cortex-A72</li>
+              <li><strong>RAM:</strong> 2–8 GB (SKU)</li>
+              <li><strong>Storage:</strong> microSD (ES), eMMC planned</li>
+            </ul>
+            <div class="chip chip-verified">Verified</div>
+          </article>
+
+          <!-- Backhaul -->
+          <article class="spec-card" data-status="mixed">
+            <h3>Povezivost</h3>
+            <ul>
+              <li><strong>Ethernet:</strong> Gigabit</li>
+              <li><strong>Wi-Fi:</strong> planned (SKU)</li>
+              <li><strong>LTE/4G:</strong> planned (SKU)</li>
+              <li><strong>VPN:</strong> planned (WireGuard/OpenVPN)</li>
+            </ul>
+            <div class="chip chip-mixed">Mixed</div>
+          </article>
+
+          <!-- Reliability -->
+          <article class="spec-card" data-status="verified">
+            <h3>Pouzdanost & dijagnostika</h3>
+            <ul>
+              <li><strong>Watchdogs & auto-recover:</strong> dizajnirano za minimalni downtime</li>
+              <li><strong>Power Quality telemetry:</strong> praćenje napona + brownout signalizacija</li>
+              <li><strong>Korelacija:</strong> power events ↔ reset ↔ packet loss</li>
+            </ul>
+            <div class="chip chip-verified">Verified</div>
+          </article>
+
+          <article class="spec-card" data-status="planned">
+            <h3>Kućište & okoliš</h3>
+            <ul>
+              <li><strong>Ingress protection:</strong> target IP65 / IP67</li>
+              <li><strong>Operating temp:</strong> target −20°C do +60°C</li>
+              <li><strong>Mounting:</strong> wall / pole mount</li>
+            </ul>
+            <div class="chip chip-planned">Planned</div>
+          </article>
+
+          <article class="spec-card" data-status="mixed">
+            <h3>Potrošnja (target)</h3>
+            <ul>
+              <li><strong>Idle:</strong> ~3–4 W</li>
+              <li><strong>Typical:</strong> ~5–6 W</li>
+              <li><strong>Peak:</strong> ~7–8 W</li>
+            </ul>
+            <div class="chip chip-mixed">Preliminary</div>
+          </article>
+
+          <article class="spec-card" data-status="planned">
+            <h3>Sigurnost</h3>
+            <ul>
+              <li><strong>TLS:</strong> planned</li>
+              <li><strong>Signed updates:</strong> planned</li>
+              <li><strong>TPM / Secure Element:</strong> optional planned</li>
+              <li><strong>Secure boot:</strong> planned</li>
+            </ul>
+            <div class="chip chip-planned">Planned</div>
+          </article>
+
+          <article class="spec-card" data-status="planned">
+            <h3>Certifikacije</h3>
+            <ul>
+              <li><strong>CE / RED (EU):</strong> roadmap</li>
+              <li><strong>RoHS / REACH:</strong> roadmap</li>
+              <li><strong>FCC/IC/UKCA:</strong> planned (global SKUs)</li>
+            </ul>
+            <div class="chip chip-planned">Roadmap</div>
+          </article>
+        </div>
+
+        <div class="legal-box">
+          <h3>Preliminary / ES disclaimer (kratko, ali pokriva te)</h3>
+          <p>
+            Ovaj proizvod je u fazi <strong>Engineering Sample (ES)</strong>. Sve specifikacije na ovoj stranici su
+            <strong>preliminarne</strong> i podložne promjenama prije finalne proizvodnje. Neke značajke su
+            navedene kao <strong>planned</strong> i nisu dostupne u ES verziji.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERIFIED vs PLANNED -->
+    <section class="section alt" id="status">
+      <div class="container">
+        <div class="section-title">
+          <h2>Verified vs Planned</h2>
+          <p>Ovo je bitno da kupac odmah vidi što je činjenica, a što roadmap.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <h3>Verified (ES danas)</h3>
+            <ul class="checklist">
+              <li>SX1303 koncentrator + multi-channel LoRaWAN</li>
+              <li>EU868 fokus</li>
+              <li>RPi4 host platforma</li>
+              <li>FineTimestamp podrška (geolocation-ready)</li>
+              <li>Power Quality telemetry + korelacija reset/packet loss</li>
+              <li>Remote metrics/logging (osnovno)</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Planned (roadmap)</h3>
+            <ul class="checklist">
+              <li>IP65/IP67 industrijsko kućište (final test)</li>
+              <li>CE/RED certifikacije</li>
+              <li>LTE/4G SKU</li>
+              <li>WireGuard VPN</li>
+              <li>Signed OTA + rollback</li>
+              <li>TPM / Secure Element</li>
+            </ul>
           </div>
         </div>
-        <div class="step">
-          <div class="step-index">3</div>
-          <div>
-            <strong data-i18n="process.s3_title">Koncept fixturea</strong>
-            <p data-i18n="process.s3_body">
-              Odabir tipa fixturea, rasporeda pogo pinova, mehaničkog vođenja i potrebnih pomoćnih sklopova.
-            </p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-index">4</div>
-          <div>
-            <strong data-i18n="process.s4_title">Mehanički i električni dizajn</strong>
-            <p data-i18n="process.s4_body">
-              Izrada 3D modela, nacrta i shema. Definicija ožičenja, konektora i mjernih točaka.
-            </p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-index">5</div>
-          <div>
-            <strong data-i18n="process.s5_title">Prototip i verifikacija</strong>
-            <p data-i18n="process.s5_body">
-              Izrada prototipa fixturea i testiranje kontakata, stabilnosti mjerenja i robusnosti postupka.
-            </p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-index">6</div>
-          <div>
-            <strong data-i18n="process.s6_title">Implementacija testnog softvera</strong>
-            <p data-i18n="process.s6_body">
-              Definiranje testnih koraka, granica tolerancije i strukture logova. Priprema za rad u serijskoj proizvodnji.
-            </p>
-          </div>
+
+        <div class="callout">
+          <strong>Zašto ovo radimo?</strong>
+          ES omogućuje pilot instalacije i partnerstva bez lažnih tvrdnji. Dobiješ leadove, feedback i realne terenske podatke,
+          a specifikacije se zaključavaju kroz verifikaciju.
         </div>
       </div>
     </section>
 
     <!-- USE CASES -->
-    <section id="use-cases">
-      <h2 class="section-title" data-i18n="cases.title">Primjeri upotrebe</h2>
-      <p class="section-subtitle" data-i18n="cases.subtitle">
-        Tipične konfiguracije gdje je funkcionalni fixture prikladniji od ručnog testiranja ili generičkih rješenja.
-      </p>
+    <section class="section" id="usecases">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tipični use-cases</h2>
+          <p>Ovo je čista prodaja — kupci se prepoznaju u scenariju.</p>
+        </div>
 
-      <div class="grid grid-2">
-        <article class="card">
-          <h3 data-i18n="cases.c1_title">NB-IoT brojilo plina</h3>
-          <p data-i18n="cases.c1_body">
-            Uređaj s NB-IoT modemom, niskopotrošnim mikrokontrolerom i magnetskim senzorima za detekciju potrošnje.
-          </p>
-          <ul>
-            <li data-i18n="cases.c1_li1">simulacija impulsa senzora s više frekvencija</li>
-            <li data-i18n="cases.c1_li2">mjerenje sleep struje i tranzijenata</li>
-            <li data-i18n="cases.c1_li3">verifikacija registracije na mrežu</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3 data-i18n="cases.c2_title">Industrijski IoT senzor</h3>
-          <p data-i18n="cases.c2_body">
-            Senzor s više digitalnih i analognih kanala, predviđen za rad u industrijskim uvjetima.
-          </p>
-          <ul>
-            <li data-i18n="cases.c2_li1">test svih I/O linija pod opterećenjem</li>
-            <li data-i18n="cases.c2_li2">tracing parametara za kasniju dijagnostiku</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="card" style="margin-top:1.4rem;">
-        <h3 data-i18n="cases.benefits_title">Razlozi za uvođenje FCT fixturea</h3>
-        <ul>
-          <li data-i18n="cases.benefits_li1">smanjena varijabilnost mjerenja u odnosu na ručne metode</li>
-          <li data-i18n="cases.benefits_li2">jednoznačni kriteriji prolaza/pada</li>
-          <li data-i18n="cases.benefits_li3">mogućnost kasnije analize kvarova preko logova</li>
-          <li data-i18n="cases.benefits_li4">skalabilnost na veće serije bez promjene principa rada</li>
-        </ul>
+        <div class="cards">
+          <article class="mini-card">
+            <h3>Industrijski monitoring</h3>
+            <p>IoT senzori za strojeve, hale, energiju. Bitno: uptime + remote dijagnostika.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Smart city</h3>
+            <p>Parking, otpad, javna rasvjeta. Bitno: masovni deployment + operativni trošak.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Geolocation / TDoA</h3>
+            <p>Praćenje uređaja bez GNSS-a. Bitno: timestamping kvaliteta + backend spremnost.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <div>
-        <p class="contact-tag" data-i18n="contact.tag">Kontakt i ulazni podaci</p>
-        <h2 data-i18n="contact.title">Slanje dokumentacije</h2>
-        <p data-i18n="contact.body">
-          Za procjenu i prijedlog arhitekture fixturea potrebno je poslati osnovnu dokumentaciju uređaja
-          i okvirne zahtjeve za testiranje.
-        </p>
-        <ul>
-          <li data-i18n="contact.li1">shema u PDF formatu</li>
-          <li data-i18n="contact.li2">PCB proizvodna dokumentacija (Gerber ili sličan format)</li>
-          <li data-i18n="contact.li3">popis funkcionalnosti koje treba verificirati</li>
-          <li data-i18n="contact.li4">očekivani godišnji volumen i takt linije</li>
-        </ul>
-        <p data-i18n="contact.note">
-          Na temelju toga definira se realan opseg testa, tip fixturea i očekivana složenost implementacije.
-        </p>
-      </div>
-      <div>
-        <div>
-          <strong data-i18n="contact.email_label">E-mail</strong><br>
-          <a href="mailto:info@fct-lab.hr" data-i18n="contact.email_value">info@fct-lab.hr</a>
+    <section class="section alt" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Kontakt / Early Access</h2>
+          <p>Pošalji upit i opiši cilj (pilot, količine, okruženje). Forma je “frontend-only”.</p>
         </div>
-        <div style="margin-top:0.8rem;">
-          <strong data-i18n="contact.subject_label">Primjer subject linije</strong>
-          <ul>
-            <li><code data-i18n="contact.subject_example">[FCT] Projekt – osnovni podaci i dokumentacija</code></li>
-          </ul>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Što dobiješ u ES fazi</h3>
+            <ul class="checklist">
+              <li>Rani pristup hardveru</li>
+              <li>Direktan feedback loop (feature requests)</li>
+              <li>Prioritet na roadmap-u za tvoje potrebe</li>
+              <li>Podrška za integraciju (LNS / platforma)</li>
+            </ul>
+            <div class="note">
+              <strong>Napomena:</strong> Ako ti treba “certified + IP67” odmah, to je produkcijski SKU, ne ES.
+            </div>
+          </div>
+
+          <form class="form" id="contactForm" novalidate>
+            <label>
+              Ime i prezime
+              <input type="text" name="name" autocomplete="name" required minlength="2" />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+
+            <label>
+              Tvrtka (opcionalno)
+              <input type="text" name="company" autocomplete="organization" />
+            </label>
+
+            <label>
+              Poruka (pilot okruženje, količine, timeline)
+              <textarea name="message" rows="5" required minlength="10"></textarea>
+            </label>
+
+            <div class="form-row">
+              <label class="checkbox">
+                <input type="checkbox" name="ack" required />
+                <span>Razumijem da je ovo Engineering Sample i da su specifikacije preliminarne.</span>
+              </label>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Pošalji upit</button>
+            <p class="form-hint" id="formHint" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    © <span id="year"></span> <span data-i18n="footer.text">FCT Lab – functional test engineering</span>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">LoRaWAN Gateway</div>
+        <div class="footer-sub">Engineering Sample (ES) — Preliminary Specs</div>
+      </div>
+      <div class="footer-links">
+        <a href="#top">Top</a>
+        <a href="#specs">Spec</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </div>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
